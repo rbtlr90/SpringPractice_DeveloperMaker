@@ -3,6 +3,7 @@ package com.spring.practice.dmaker.controller;
 import com.spring.practice.dmaker.dto.CreateDeveloper;
 import com.spring.practice.dmaker.dto.DeveloperDTO;
 import com.spring.practice.dmaker.dto.DeveloperDetailDTO;
+import com.spring.practice.dmaker.dto.EditDeveloper;
 import com.spring.practice.dmaker.service.DMakerService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -30,7 +31,7 @@ public class DMakerController {
     public DeveloperDetailDTO getDeveloperDetail(
             @PathVariable String memberId
     ) {
-        log.info("GET /developers HTTP/1.1");
+        log.info("GET /developer/{} HTTP/1.1", memberId);
 
         return dMakerService.getDeveloperDetail(memberId);
     }
@@ -41,5 +42,15 @@ public class DMakerController {
     ) {
         log.info("request: {}", request);
         return  dMakerService.createDeveloper(request);
+    }
+
+    @PutMapping("/developer/{memberId}")
+    public DeveloperDetailDTO editDeveloper(
+            @PathVariable String memberId,
+            @Valid @RequestBody EditDeveloper.Request request
+    ) {
+        log.info("PUT /developer/{} HTTP/1.1", memberId);
+
+        return dMakerService.editDeveloper(memberId, request);
     }
 }
