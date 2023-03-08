@@ -1,5 +1,6 @@
 package com.spring.practice.dmaker.dto;
 
+import com.spring.practice.dmaker.code.StatusCode;
 import com.spring.practice.dmaker.entity.Developer;
 import com.spring.practice.dmaker.type.DeveloperLevel;
 import com.spring.practice.dmaker.type.DeveloperSkillType;
@@ -17,6 +18,7 @@ public class DeveloperDetailDTO {
     private String memberId;
     private String name;
     private Integer age;
+    private StatusCode statusCode;
 
     public static DeveloperDetailDTO fromEntity(Developer developer){
         return DeveloperDetailDTO.builder()
@@ -26,6 +28,7 @@ public class DeveloperDetailDTO {
                 .memberId(developer.getMemberId())
                 .name(developer.getName())
                 .age(developer.getAge())
+                .statusCode(developer.getStatusCode())
                 .build();
     }
 }
