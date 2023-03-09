@@ -26,28 +26,5 @@ public class EditDeveloper {
         @Max(20)
         private Integer experienceYears;
     }
-
-//    @Getter
-//    @Setter
-//    @AllArgsConstructor
-//    @NoArgsConstructor
-//    @Builder
-//    @ToString
-//    public static class Response {
-//        private DeveloperLevel developerLevel;
-//        private DeveloperSkillType developerSkillType;
-//        private Integer experienceYears;
-//        private String memberId;
-//
-//        public static Response fromEntity(Developer developer) {
-//            return Response.builder()
-//                    .developerLevel(developer.getDeveloperLevel())
-//                    .developerSkillType(developer.getDeveloperSkillType())
-//                    .experienceYears(developer.getExperienceYears())
-//                    .memberId(developer.getMemberId())
-//                    .build();
-//        }
-//    }
-
 }
 
