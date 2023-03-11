@@ -1,5 +1,6 @@
 package com.spring.practice.dmaker.dto;
 
+import com.spring.practice.dmaker.code.StatusCode;
 import com.spring.practice.dmaker.entity.Developer;
 import com.spring.practice.dmaker.type.DeveloperLevel;
 import com.spring.practice.dmaker.type.DeveloperSkillType;
@@ -33,6 +34,18 @@ public class CreateDeveloper {
         private String name;
         @Min(18)
         private Integer age;
+
+        public static Developer toEntity(CreateDeveloper.Request request) {
+            return Developer.builder()
+                    .developerLevel(request.getDeveloperLevel())
+                    .developerSkillType(request.getDeveloperSkillType())
+                    .experienceYears(request.getExperienceYears())
+                    .memberId(request.getMemberId())
+                    .name(request.getName())
+                    .age(request.getAge())
+                    .statusCode(StatusCode.EMPLOYED)
+                    .build();
+        }
     }
 
     @Getter
@@ -47,7 +60,7 @@ public class CreateDeveloper {
         private Integer experienceYears;
         private String memberId;
 
-        public static Response fromEntity(Developer developer) {
+        public static Response fromEntity(@NonNull Developer developer) {
             return Response.builder()
                     .developerLevel(developer.getDeveloperLevel())
                     .developerSkillType(developer.getDeveloperSkillType())

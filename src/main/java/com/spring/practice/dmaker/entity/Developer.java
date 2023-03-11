@@ -1,6 +1,7 @@
 package com.spring.practice.dmaker.entity;
 
 import com.spring.practice.dmaker.code.StatusCode;
+import com.spring.practice.dmaker.dto.CreateDeveloper;
 import com.spring.practice.dmaker.type.DeveloperLevel;
 import com.spring.practice.dmaker.type.DeveloperSkillType;
 import jakarta.persistence.*;
